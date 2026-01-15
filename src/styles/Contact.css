@@ -1,0 +1,79 @@
+.contact {
+  background: var(--footer-bg); /* Use variable */
+  padding-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.contact-text {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.btn-large {
+  padding: 1.4rem 4rem;
+  font-size: 1.1rem;
+  width: fit-content;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-icon-link {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.social-icon-link:hover {
+  transform: translateY(-8px) scale(1.1);
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 10px 20px rgba(112, 0, 255, 0.3);
+}
+
+.social-icon-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor;
+  transition: fill 0.3s ease;
+}
+
+.social-icon-link:hover svg {
+  fill: white;
+}
+
+.footer-copyright {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

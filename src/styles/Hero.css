@@ -1,0 +1,121 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 0;
+}
+
+.hero-content {
+  max-width: 1000px;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-greeting {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation: slideRight 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-name {
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 0.9;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: revealUp 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-headline {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  min-height: 3.5rem;
+  opacity: 0.9;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-bottom: 4rem;
+  line-height: 1.6;
+  animation: revealUp 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 2rem;
+  animation: revealUp 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 30px rgba(112, 0, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(112, 0, 255, 0.4);
+}
+
+.btn-outline {
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  background: var(--glass-border);
+  border-color: var(--text-primary);
+  transform: translateY(-5px);
+}
+
+/* Base Reveal Animations */
+@keyframes revealUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-50px); opacity: 0; letter-spacing: 1em; }
+  to { transform: translateX(0); opacity: 1; letter-spacing: 0.3em; }
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.typewriter-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cursor {
+  color: var(--accent-color);
+  font-weight: 200;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+

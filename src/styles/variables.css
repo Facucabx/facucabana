@@ -1,0 +1,46 @@
+:root {
+  /* 2026 Electric Palette */
+  --bg-color: #020205;
+  --bg-secondary: #080810;
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  
+  /* Vibrant Accents */
+  --accent-color: #00f2fe;
+  --accent-secondary: #7000ff;
+  --accent-electric: #00ffff;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #7000ff 100%);
+  --text-gradient: linear-gradient(to right, #ffffff, #94a3b8);
+  
+  /* Fluid Typography */
+  --font-main: "Outfit", sans-serif;
+  --font-heading: "Plus Jakarta Sans", sans-serif;
+  
+  /* Premium Glassmorphism */
+  --glass-bg: rgba(10, 10, 20, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-backdrop: blur(20px) saturate(180%);
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --card-hover: rgba(255, 255, 255, 0.03);
+  
+  /* Layout */
+  --border-radius: 24px;
+  --container-width: 1400px;
+  --section-padding: clamp(80px, 15vh, 160px) 20px;
+}
+
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  
+  --accent-color: #0ea5e9;
+  --accent-secondary: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+  --text-gradient: linear-gradient(to right, #0f172a, #64748b);
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --card-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}

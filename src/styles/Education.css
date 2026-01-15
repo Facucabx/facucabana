@@ -1,0 +1,68 @@
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.education-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--accent-secondary);
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateX(10px);
+  background: var(--card-hover);
+}
+
+.edu-degree {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.edu-institution {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.edu-period {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.edu-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.edu-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.edu-tag {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--accent-color);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.edu-tag:hover {
+  background: var(--accent-gradient);
+  color: white;
+  border-color: transparent;
+}
