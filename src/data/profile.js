@@ -1,4 +1,4 @@
-import profilePic from '../assets/profile-pic.jpg';
+
 import projectApligood from '../assets/project-apligood.png';
 import projectApligoodMarketing from '../assets/project-apligood-marketing.png';
 import projectApligoodLive from '../assets/project-apligood-live.png';

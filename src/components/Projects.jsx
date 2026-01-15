@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "../styles/Projects.css";
 import { profileData } from "../data/profile";
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project }) => {
   const cardRef = useRef(null);
   const [transform, setTransform] = useState(
     "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)"
