@@ -25,8 +25,8 @@
 }
 
 .experience-card-logo {
-  margin-bottom: 1.5rem; /* Reduced from 2rem slightly */
-  text-align: center;
+  /* Removed margin-bottom from logo as it is now in flex row */
+  text-align: right; 
 }
 
 .experience-card-logo img {
@@ -41,6 +41,18 @@
 
 .experience-card-logo img:hover {
   transform: scale(1.05);
+}
+
+.exp-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.exp-header-text {
+  text-align: left;
 }
 
 .timeline-track {
@@ -67,18 +79,20 @@
 .line-progress {
   width: 100%;
   height: 100%;
-  background: var(--accent-gradient);
+  background: linear-gradient(90deg, var(--accent-color), #00f2fe, var(--accent-color));
+  background-size: 200% 100%;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.6), 0 0 30px rgba(0, 242, 254, 0.4);
+  animation: shimmer 3s infinite linear;
 }
 
 .timeline-point {
   position: relative;
   z-index: 2;
-  display: flex;
+  display: flex; /* Keeps year and dot together */
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  /* Removed gap so dot centers perfectly in the flex container */
 }
 
 .timeline-point.end {
@@ -105,7 +119,25 @@
   font-weight: 700;
   color: var(--text-primary);
   white-space: nowrap;
+  position: absolute; /* Take out of flow to let dot center on line */
+  bottom: 25px; /* Position above the dot */
+  left: 50%;
+  transform: translateX(-50%);
 }
+/* Fix for end label overflow */
+/* Fix for end label overflow */
+.timeline-point.end .point-year {
+  transform: none;
+  left: auto;
+  right: 0;
+}
+
+/* Fix for start label alignment (match title) */
+.timeline-point.start .point-year {
+  transform: none;
+  left: 0;
+}
+
 /* Adjust font size for in-card if needed, but keeping consistent for now */
 
 .experience-list {
@@ -130,12 +162,19 @@
     padding: 1.5rem; /* Reduced padding */
   }
   
-  .exp-role {
-    font-size: 1.4rem;
+  .exp-top-row {
+    flex-direction: column-reverse; /* Put logo on top or below? User asked layout: Top Left Title. Let's keep row but allow wrapping or stack if very small */
+    /* Actually for mobile stacking usually logo top is better, or keeping side by side if small enough. */
+    align-items: center;
+    text-align: center;
   }
   
-  .exp-company {
-    font-size: 1rem;
+  .exp-header-text {
+    text-align: center;
+  }
+
+  .experience-card-logo {
+    text-align: center;
     margin-bottom: 1rem;
   }
 }
@@ -163,6 +202,69 @@
   margin-bottom: 1.5rem;
 }
 
+/* Live Timer Styles */
+.live-timer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto 1.5rem auto; /* Centered with bottom margin */
+  background: rgba(0, 242, 254, 0.05); /* Very subtle accent bio */
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  width: fit-content;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.timer-value {
+  font-family: 'JetBrains Mono', monospace; /* Tech feel */
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+[data-theme="light"] .timer-value {
+  text-shadow: none;
+  font-weight: 800;
+  color: var(--accent-secondary);
+}
+
+.timer-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.timer-separator {
+  color: var(--glass-border);
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .live-timer {
+    gap: 0.8rem;
+    padding: 0.8rem;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .timer-value {
+    font-size: 1.1rem;
+  }
+}
+
+
 .exp-description {
   color: var(--text-secondary);
   line-height: 1.8;
@@ -173,4 +275,9 @@
   0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); transform: scale(1); }
   70% { box-shadow: 0 0 0 15px rgba(0, 242, 254, 0); transform: scale(1.1); }
   100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }

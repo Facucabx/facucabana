@@ -27,6 +27,10 @@
     margin-left: auto;
     margin-right: auto;
   }
+  
+  .hero-headline {
+    justify-content: center; /* Force center on mobile */
+  }
 
   .hero-actions {
     justify-content: center;
@@ -60,9 +64,16 @@
   animation: slideRight 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+@media (min-width: 769px) {
+  .hero-name {
+    justify-content: flex-start; /* Reset to left align on desktop */
+    min-height: 1.1em; /* Only 1 line needed on desktop */
+  }
+}
+
 .hero-name {
   font-size: clamp(4rem, 12vw, 8rem);
-  line-height: 0.9;
+  line-height: 1.1; /* Relaxed from 0.9 to prevent fallback font overflow */
   font-weight: 700;
   margin-bottom: 2rem;
   letter-spacing: -0.05em;
@@ -71,15 +82,25 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: revealUp 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  min-height: 3.3em; /* Reserve space for up to 3 lines on small mobile */
+  display: flex;
+  align-items: center; /* Center content vertically in the reserved space */
+  justify-content: center; /* Center horizontally (for mobile mostly) */
+  min-height: 0.9em; /* Reserve space for LCP text to prevent CLS */
+  display: flex;
+  align-items: center; /* Ensure vertical centering matches line-height */
 }
 
 .hero-headline {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
   color: var(--text-secondary);
+  justify-content: flex-start; /* Align text to the left by default (desktop) */
   margin-bottom: 2.5rem;
-  min-height: 3.5rem;
+  min-height: 6rem; /* Increased to prevent CLS on mobile typewriter wrap */
   opacity: 0.9;
+  display: flex;
+  align-items: center; /* Vertically center the text if it's shorter */
 }
 
 .hero-description {

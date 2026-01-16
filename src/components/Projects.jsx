@@ -45,7 +45,14 @@ const ProjectCard = ({ project }) => {
     >
       <div className="project-image">
         {project.image ? (
-          <img src={project.image} alt={project.title} loading="lazy" />
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            width="800"
+            height="450"
+            style={{ aspectRatio: "16/9", objectFit: "cover" }}
+          />
         ) : (
           <div className="project-img-placeholder">
             <span>{project.title}</span>
@@ -72,6 +79,7 @@ const ProjectCard = ({ project }) => {
           className="project-link"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Ver proyecto ${project.title}`}
         >
           Ver Proyecto &rarr;
         </a>

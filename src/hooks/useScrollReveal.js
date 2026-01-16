@@ -7,18 +7,42 @@ const useScrollReveal = () => {
       rootMargin: '0px 0px -100px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('reveal-active');
+          // Optional: stop observing once revealed
+          intersectionObserver.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    const revealElements = document.querySelectorAll('.reveal');
-    revealElements.forEach((el) => observer.observe(el));
+    const observeElements = () => {
+      const revealElements = document.querySelectorAll('.reveal');
+      revealElements.forEach((el) => intersectionObserver.observe(el));
+    };
 
-    return () => observer.disconnect();
+    // Initial observation
+    observeElements();
+
+    // Watch for DOM changes (lazy loaded content)
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          observeElements();
+        }
+      });
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    return () => {
+      intersectionObserver.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 };
 

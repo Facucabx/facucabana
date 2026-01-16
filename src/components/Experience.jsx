@@ -1,6 +1,48 @@
 import React from "react";
 import "../styles/Experience.css";
+import useTimeElapsed from "../hooks/useTimeElapsed";
 import { profileData } from "../data/profile";
+import { useEffect, useState } from "react";
+
+const LiveTimer = ({ startDate }) => {
+  const time = useTimeElapsed(startDate);
+
+  return (
+    <div className="live-timer fade-in">
+      <div className="timer-unit">
+        <span className="timer-value">{time.years}</span>
+        <span className="timer-label">Años</span>
+      </div>
+      <div className="timer-unit">
+        <span className="timer-value">{time.months}</span>
+        <span className="timer-label">Meses</span>
+      </div>
+      <div className="timer-unit">
+        <span className="timer-value">{time.days}</span>
+        <span className="timer-label">Días</span>
+      </div>
+      <div className="timer-separator">|</div>
+      <div className="timer-unit">
+        <span className="timer-value">
+          {String(time.hours).padStart(2, "0")}
+        </span>
+        <span className="timer-label">Hs</span>
+      </div>
+      <div className="timer-unit">
+        <span className="timer-value">
+          {String(time.minutes).padStart(2, "0")}
+        </span>
+        <span className="timer-label">Min</span>
+      </div>
+      <div className="timer-unit">
+        <span className="timer-value">
+          {String(time.seconds).padStart(2, "0")}
+        </span>
+        <span className="timer-label">Seg</span>
+      </div>
+    </div>
+  );
+};
 
 const Experience = () => {
   return (
@@ -16,10 +58,16 @@ const Experience = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               <div className="timeline-content">
-                <div className="experience-card-logo">
-                  <a href={exp.url} target="_blank" rel="noopener noreferrer">
-                    <img src={exp.logo} alt={exp.company} />
-                  </a>
+                <div className="exp-top-row">
+                  <div className="exp-header-text">
+                    <h3 className="exp-role">{exp.role}</h3>
+                    <h4 className="exp-company">{exp.company}</h4>
+                  </div>
+                  <div className="experience-card-logo">
+                    <a href={exp.url} target="_blank" rel="noopener noreferrer">
+                      <img src={exp.logo} alt={exp.company} />
+                    </a>
+                  </div>
                 </div>
 
                 <div className="experience-summary-timeline in-card">
@@ -33,17 +81,13 @@ const Experience = () => {
                     </div>
                     <div className="timeline-point end present">
                       <div className="point-dot pulse"></div>
-                      <span className="point-year">2026 Actualidad</span>
+                      <span className="point-year">Actualidad</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="exp-header">
-                  <div>
-                    <h3 className="exp-role">{exp.role}</h3>
-                    <h4 className="exp-company">{exp.company}</h4>
-                  </div>
-                </div>
+                {exp.startDate && <LiveTimer startDate={exp.startDate} />}
+
                 <p className="exp-description">{exp.description}</p>
               </div>
             </div>

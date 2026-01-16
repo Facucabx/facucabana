@@ -11,7 +11,14 @@ const About = () => {
 
         <div className="about-content">
           <div className="about-image fade-in">
-            <img src={profilePic} alt="Facundo Cabaña" />
+            <img
+              src={profilePic}
+              alt="Facundo Cabaña"
+              width="400"
+              height="400"
+              loading="lazy"
+              style={{ aspectRatio: "1/1", objectFit: "cover" }}
+            />
           </div>
 
           <div className="about-text fade-in delay-100">

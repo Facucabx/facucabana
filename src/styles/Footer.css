@@ -81,8 +81,8 @@
 .footer-credits {
   margin-top: 1rem;
   color: var(--text-secondary);
+  color: var(--text-secondary);
   font-size: 0.9rem;
-  opacity: 0.7;
 }
 
 .footer-credits span {

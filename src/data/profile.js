@@ -30,6 +30,7 @@ export const profileData = {
       period: "Abril 2015 – Actualidad",
       logo: personalLogo,
       url: "https://www.personal.com.ar",
+      startDate: "2015-04-13T00:00:00",
       description: "Comencé mi carrera en Cablevisión Fibertel y me adapté con éxito a la transformación hacia Personal (Telecom Argentina). Mi especialidad es la implementación de FTTH y HFC, pero mi trabajo va mucho más allá de la instalación: gestiono integralmente mi unidad móvil (control de stock y órdenes de trabajo) para asegurar eficiencia en cada visita. Con más de 17.000 órdenes ejecutadas, combino la capacidad técnica con el trabajo en equipo y una atención al cliente dedicada, buscando siempre que el usuario quede 100% satisfecho."
     }
   ],
