@@ -3,6 +3,7 @@ import "../styles/Experience.css";
 import useTimeElapsed from "../hooks/useTimeElapsed";
 import { profileData } from "../data/profile";
 import { useEffect, useState } from "react";
+import NpsGauge from "./NpsGauge";
 
 const LiveTimer = ({ startDate }) => {
   const time = useTimeElapsed(startDate);
@@ -89,6 +90,21 @@ const Experience = () => {
                 {exp.startDate && <LiveTimer startDate={exp.startDate} />}
 
                 <p className="exp-description">{exp.description}</p>
+
+                {exp.metrics && (
+                  <div className="experience-metrics">
+                    {exp.metrics.map((metric, idx) => (
+                      <div key={idx} className="metric-item">
+                        {metric.type === "nps" ? (
+                          <NpsGauge value={metric.value} />
+                        ) : (
+                          <span className="metric-value">{metric.value}</span>
+                        )}
+                        <span className="metric-label">{metric.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}

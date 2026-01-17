@@ -31,7 +31,12 @@ export const profileData = {
       logo: personalLogo,
       url: "https://www.personal.com.ar",
       startDate: "2015-04-13T00:00:00",
-      description: "Comencé mi carrera en Cablevisión Fibertel y me adapté con éxito a la transformación hacia Personal (Telecom Argentina). Mi especialidad es la implementación de FTTH y HFC, pero mi trabajo va mucho más allá de la instalación: gestiono integralmente mi unidad móvil (control de stock y órdenes de trabajo) para asegurar eficiencia en cada visita. Con más de 17.000 órdenes ejecutadas, combino la capacidad técnica con el trabajo en equipo y una atención al cliente dedicada, buscando siempre que el usuario quede 100% satisfecho."
+      description: "Comencé mi carrera en Cablevisión Fibertel y me adapté con éxito a la transformación hacia Personal (Telecom Argentina). Especialista en implementación de FTTH y HFC, mi rol va más allá de la instalación y service: gestiono integralmente recursos y stock para maximizar la eficiencia. Si bien mi zona principal es San Nicolás de los Arroyos, cuento con experiencia operativa en Ramallo, San Pedro, Santa Fe Capital, Campana y Zárate. Con más de 17.000 órdenes ejecutadas, aporto capacidad técnica, trabajo en equipo y un enfoque absoluto en la satisfacción del cliente.",
+      metrics: [
+        { value: "+17.000", label: "Órdenes Exitosas" },
+        { value: "+90%", label: "Cumplimiento" },
+        { type: "nps", value: 90, label: "Satisfacción" }
+      ]
     }
   ],
   education: [

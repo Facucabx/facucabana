@@ -141,7 +141,7 @@
 /* Adjust font size for in-card if needed, but keeping consistent for now */
 
 .experience-list {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -280,4 +280,69 @@
 @keyframes shimmer {
   0% { background-position: 100% 0; }
   100% { background-position: -100% 0; }
+}
+
+/* Metrics inside Experience Card */
+.experience-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+  justify-content: center;
+  align-items: stretch; /* Make all items same height */
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Push content down initially */
+}
+
+/* Target the first child (Value or Gauge) to take up remaining space and center itself */
+.metric-item > :first-child {
+  flex: 1;
+  display: flex;
+  align-items: center; /* Center vertically in the available space */
+  justify-content: center;
+  margin-bottom: 0.5rem; /* Space between value and label */
+}
+
+.nps-gauge-container {
+   /* Ensure gauge container behaves well in flex */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-end; /* Keep gauge visual at bottom of its space if preferred, or center? User said center. */
+   /* Actually, if we center the parent, this should be fine. */
+}
+
+.metric-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 2rem; /* Further increased size */
+  font-weight: 700;
+  color: var(--accent-color);
+  text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  .experience-metrics {
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .metric-item {
+    align-items: center;
+  }
 }
